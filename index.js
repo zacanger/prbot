@@ -6,7 +6,8 @@ const handleConfig = (userConfig = {}) =>
 const format = (prs = {}) =>
   prs.items.map((pr) => {
     const { url, labels, user: { login }, title } = pr
-    return { url, labels, user: login, title }
+    const labelNames = labels.map(({ name }) => name)
+    return { url, labels: labelNames, user: login, title }
   })
 
 const search = async (config) => {
