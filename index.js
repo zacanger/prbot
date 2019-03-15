@@ -6,7 +6,7 @@ const handleConfig = (userConfig = {}) =>
 const format = (prs = {}) =>
   prs && prs.items && prs.items.length
     ? prs.items.map((pr) => {
-      const { url, labels, user: { login }, title } = pr
+      const { html_url: url, labels, user: { login }, title } = pr
       const labelNames = labels.map(({ name }) => name)
       return { url, labels: labelNames, user: login, title }
     })
