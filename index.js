@@ -4,11 +4,13 @@ const handleConfig = (userConfig = {}) =>
   Object.assign({ api: 'https://api.github.com' }, userConfig)
 
 const format = (prs = {}) =>
-  prs.items.map((pr) => {
-    const { url, labels, user: { login }, title } = pr
-    const labelNames = labels.map(({ name }) => name)
-    return { url, labels: labelNames, user: login, title }
-  })
+  prs && prs.items && prs.items.length
+    ? prs.items.map((pr) => {
+      const { url, labels, user: { login }, title } = pr
+      const labelNames = labels.map(({ name }) => name)
+      return { url, labels: labelNames, user: login, title }
+    })
+    : ''
 
 const search = async (config) => {
   try {
@@ -22,7 +24,7 @@ const search = async (config) => {
       }
     })
     const body = await res.json()
-    return format(body)
+    return body ? format(body) : ''
   } catch (e) {
     throw e
   }
