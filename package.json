@@ -1,6 +1,6 @@
 {
   "name": "prbot",
-  "description": "prbot",
+  "description": "Module to get open PRs from GitHub API",
   "version": "0.0.1",
   "author": {
     "email": "zac@zacanger.com",
@@ -23,8 +23,10 @@
   },
   "bugs": "https://github.com/zacanger/prbot/issues",
   "keywords": [
-    "",
-    "prbot"
+    "pr",
+    "pull-request",
+    "github",
+    "gh"
   ],
   "dependencies": {},
   "devDependencies": {
