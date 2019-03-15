@@ -11,8 +11,6 @@ Useful for things like a recurring Slack notification.
 
 ## Usage
 
-**DOESN'T WORK YET**
-
 ```javascript
 const prs = require('get-open-pull-requests')
 const config = {
@@ -21,8 +19,7 @@ const config = {
   token: '', // github access token, see below
 }
 
-const results = prs(config)()
-console.log(JSON.stringify(results, null, 2))
+prs(config).then((a) => JSON.stringify(a, null, 2)).then(console.log)
 ```
 
 #### Token
