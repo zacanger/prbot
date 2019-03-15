@@ -10,7 +10,7 @@ const format = (prs = {}) =>
       const labelNames = labels.map(({ name }) => name)
       return { url, labels: labelNames, user: login, title }
     })
-    : ''
+    : []
 
 const search = async (config) => {
   try {
@@ -24,7 +24,7 @@ const search = async (config) => {
       }
     })
     const body = await res.json()
-    return body ? format(body) : ''
+    return body ? format(body) : []
   } catch (e) {
     throw e
   }
