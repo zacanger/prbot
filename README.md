@@ -49,6 +49,12 @@ prs(config)
   .then(sendToSlackOrSomething)
 ```
 
+## Patreon Sponsors
+
+This project is sponsored on [Patreon](https://www.patreon.com/zacanger) by:
+
+* Keeley Hammond
+
 ## License
 
 [MIT](./LICENSE.md)
