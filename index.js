@@ -6,21 +6,28 @@ const handleConfig = (userConfig = {}) =>
 const format = (prs = {}) =>
   prs && prs.items && prs.items.length
     ? prs.items.map((pr) => {
-      const { html_url: url, labels, user: { login }, title } = pr
-      const labelNames = labels.map(({ name }) => name)
-      return { url, labels: labelNames, user: login, title }
-    })
+        const {
+          html_url: url,
+          labels,
+          user: { login },
+          title,
+        } = pr
+        const labelNames = labels.map(({ name }) => name)
+        return { url, labels: labelNames, user: login, title }
+      })
     : []
 
 const search = async (config) => {
-  const url = config.api.replace(/\/$/, '') +
+  const url =
+    config.api.replace(/\/$/, '') +
     '/search/issues?q=type:pr+state:open' +
-    '+user:' + config.user
+    '+user:' +
+    config.user
   const res = await fetch(url, {
     headers: {
       Authorization: `token ${config.token}`,
-      Accept: 'application/json'
-    }
+      Accept: 'application/json',
+    },
   })
   const body = await res.json()
   return body ? format(body) : []
