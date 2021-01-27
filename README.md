@@ -1,5 +1,7 @@
 # get-open-pull-requests
 
+**Abandoned** Use Octokit.
+
 Module to get open PRs from GitHub API.
 Useful for things like a recurring Slack notification.
 
